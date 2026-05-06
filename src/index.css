@@ -8,35 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark portfolio theme */
+    --background: 230 25% 6%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 230 22% 9%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 230 22% 9%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 190 95% 55%;
+    --primary-foreground: 230 25% 6%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 270 80% 65%;
+    --secondary-foreground: 230 25% 6%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 230 18% 14%;
+    --muted-foreground: 215 20% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 270 80% 65%;
+    --accent-foreground: 230 25% 6%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 230 20% 16%;
+    --input: 230 20% 16%;
+    --ring: 190 95% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.85rem;
+
+    --neon-cyan: 190 95% 55%;
+    --neon-purple: 270 80% 65%;
+    --neon-blue: 220 95% 65%;
+
+    --gradient-hero: radial-gradient(ellipse at top, hsl(190 95% 55% / 0.18), transparent 60%), radial-gradient(ellipse at bottom right, hsl(270 80% 65% / 0.18), transparent 55%), hsl(230 25% 6%);
+    --gradient-accent: linear-gradient(135deg, hsl(190 95% 55%), hsl(270 80% 65%));
+    --gradient-card: linear-gradient(145deg, hsl(230 22% 10% / 0.9), hsl(230 22% 7% / 0.9));
+
+    --shadow-glow: 0 0 40px hsl(190 95% 55% / 0.35);
+    --shadow-glow-purple: 0 0 40px hsl(270 80% 65% / 0.35);
+    --shadow-card: 0 10px 40px -10px hsl(230 50% 2% / 0.6);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +116,34 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-image: var(--gradient-hero);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .glow-cyan { box-shadow: var(--shadow-glow); }
+  .glow-purple { box-shadow: var(--shadow-glow-purple); }
+  .border-glow {
+    border: 1px solid hsl(var(--primary) / 0.4);
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.1), 0 0 30px hsl(var(--primary) / 0.15);
+  }
+  .card-surface {
+    background: var(--gradient-card);
+    border: 1px solid hsl(var(--border));
+    backdrop-filter: blur(10px);
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 }
