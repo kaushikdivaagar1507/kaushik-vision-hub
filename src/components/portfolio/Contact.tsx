@@ -2,19 +2,43 @@ import { Mail, Phone, Github, Linkedin, Send, MapPin, Sparkles } from "lucide-re
 import SectionHeader from "./SectionHeader";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
+
+const EMAILJS_SERVICE_ID = "service_xe1tttr";
+const EMAILJS_TEMPLATE_ID = "template_0niqvme";
+const EMAILJS_PUBLIC_KEY = "0l5N9JmJ6lWN3CZVY";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      toast({ title: "Message ready!", description: "Thanks — I'll be in touch soon." });
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+          reply_to: form.email,
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY },
+      );
+      toast({ title: "Message sent!", description: "Thanks — I'll be in touch soon." });
       setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      toast({
+        title: "Failed to send",
+        description: "Something went wrong. Please email me directly.",
+        variant: "destructive",
+      });
+    } finally {
       setLoading(false);
-    }, 600);
+    }
   };
 
   const inputCls =
