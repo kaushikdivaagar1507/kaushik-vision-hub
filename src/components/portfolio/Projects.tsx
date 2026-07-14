@@ -103,6 +103,64 @@ const Projects = () => (
             <ExternalLink className="w-3 h-3" />
           </a>
         </div>
+        {/* ================= Other Projects ================= */}
+
+<div className="mt-16">
+  <h3 className="text-3xl font-bold text-center mb-10">
+    Other <span className="text-gradient">Projects</span>
+  </h3>
+
+  <div className="grid md:grid-cols-2 gap-8">
+
+    <div className="card-surface rounded-2xl p-6 border border-border hover:border-primary transition-all">
+      <h4 className="text-2xl font-bold mb-3">
+        MERN ToDo App
+      </h4>
+
+      <p className="text-muted-foreground mb-5">
+        A full-stack task management application built using React,
+        Node.js, Express.js, and MongoDB. Users can add, edit,
+        delete, and manage tasks through a clean responsive interface.
+      </p>
+
+      <div className="flex flex-wrap gap-2 mb-6">
+        {["React", "Node.js", "Express", "MongoDB", "REST API"].map((tech) => (
+          <span
+            key={tech}
+            className="px-2 py-1 text-xs rounded bg-muted border border-border"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      <div className="flex gap-3">
+
+        <a
+          href="https://github.com/kaushikdivaagar1507/todo-app"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border hover:border-primary"
+        >
+          <Github className="w-4 h-4" />
+          GitHub
+        </a>
+
+        <a
+          href="https://todo-app-six-gamma-86.vercel.app/"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground"
+        >
+          <ExternalLink className="w-4 h-4" />
+          Live Demo
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</div>
       </div>
     </div>
   </section>
