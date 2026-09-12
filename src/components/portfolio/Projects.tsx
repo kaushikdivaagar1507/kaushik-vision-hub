@@ -9,49 +9,49 @@ import {
 } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 
-const stack = [
+/* =========================
+   SnapBook - Featured Project
+========================= */
+
+const snapBookStack = [
   "React",
   "Node.js",
-  "Python",
+  "Express.js",
   "MongoDB",
-  "AstraDB",
-  "NLP",
-  "LLM",
   "JWT",
+  "REST API",
 ];
 
-const features = [
+const snapBookFeatures = [
   {
-    icon: Brain,
-    title: "AI-Powered Recommendations",
+    icon: Users,
+    title: "Photographer & Client Platform",
     description:
-      "Skill-based alumni and student recommendations using NLP embeddings.",
+      "Connect clients with photographers for events such as weddings, pre-weddings, and special occasions.",
   },
   {
     icon: Sparkles,
-    title: "AI Digital Assistant",
+    title: "Photographer Profiles",
     description:
-      "Intelligent assistant powered by vector search and LLM technology.",
-  },
-  {
-    icon: Users,
-    title: "Alumni Networking",
-    description:
-      "Connect students and alumni based on skills, interests, and opportunities.",
+      "Photographers can create profiles and showcase their photography work through portfolio posts.",
   },
   {
     icon: Database,
-    title: "Smart Data Management",
+    title: "Portfolio & Availability",
     description:
-      "MongoDB and AstraDB integration for structured and vector data.",
+      "Manage photography posts, profile information, and booking availability from a centralized platform.",
   },
   {
     icon: Lock,
     title: "Secure Authentication",
     description:
-      "JWT authentication with role-based access control.",
+      "JWT-based authentication with role-based access for clients and photographers.",
   },
 ];
+
+/* =========================
+   Other Projects
+========================= */
 
 const otherProjects = [
   {
@@ -62,6 +62,7 @@ const otherProjects = [
     github: "https://github.com/kaushikdivaagar1507/todo-app",
     demo: "https://todo-app-six-gamma-86.vercel.app/",
   },
+
   {
     title: "JARVIS AI Chat Assistant",
     description:
@@ -71,20 +72,43 @@ const otherProjects = [
       "https://github.com/kaushikdivaagar1507/Jarvis-ChatAssistant",
     demo: "https://jarvis-chat-assistant.vercel.app",
   },
+
+  {
+    title: "Smart Alumni Connect",
+    description:
+      "An AI-powered platform designed to connect students and alumni through intelligent recommendations, networking, events, and opportunities. The system uses NLP embeddings, vector search, and LLM technology to provide personalized interactions and recommendations.",
+    tech: [
+      "React",
+      "Node.js",
+      "Python",
+      "MongoDB",
+      "AstraDB",
+      "NLP",
+      "LLM",
+      "JWT",
+    ],
+    github: "https://github.com/kaushikdivaagar1507",
+    demo: "",
+  },
 ];
 
 const Projects = () => {
   return (
     <section id="projects" className="py-20">
       <div className="container mx-auto px-6">
+
         <SectionHeader
           title="Projects"
           subtitle="Things I've built and worked on"
         />
 
-        {/* Featured Project */}
+        {/* =========================
+            Featured Project - SnapBook
+        ========================= */}
+
         <div className="mb-12">
           <div className="card-surface rounded-2xl p-8 border border-border hover:border-primary transition-all">
+
             <div className="flex flex-col lg:flex-row gap-8">
 
               {/* Project Info */}
@@ -99,20 +123,20 @@ const Projects = () => {
                 </div>
 
                 <h3 className="text-3xl font-bold mb-4">
-                  Smart Alumni Connect
+                  Snap<span className="text-primary">Book</span>
                 </h3>
 
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  An AI-powered platform designed to connect students and
-                  alumni through intelligent recommendations, networking,
-                  events, and opportunities. The system uses NLP embeddings,
-                  vector search, and LLM technology to provide personalized
-                  interactions and recommendations.
+                  A full-stack photographer booking platform designed to
+                  connect clients with photographers for events and special
+                  occasions. Photographers can create profiles, showcase
+                  their photography work, manage availability, and receive
+                  booking requests from clients.
                 </p>
 
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {stack.map((tech) => (
+                  {snapBookStack.map((tech) => (
                     <span
                       key={tech}
                       className="px-3 py-1 text-sm rounded-full bg-muted border border-border"
@@ -122,10 +146,12 @@ const Projects = () => {
                   ))}
                 </div>
 
-                {/* Smart Alumni Connect Links */}
+                {/* SnapBook Links */}
                 <div className="flex flex-wrap gap-3">
+
+                  {/* GitHub */}
                   <a
-                    href="https://github.com/kaushikdivaagar1507"
+                    href="https://github.com/kaushikdivaagar1507/SnapBook"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border hover:border-primary transition-all"
@@ -133,12 +159,25 @@ const Projects = () => {
                     <Github className="w-4 h-4" />
                     GitHub
                   </a>
+
+                  {/* Live Demo */}
+                  <a
+                    href="https://snap-book-puce.vercel.app/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90 transition-all"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Live Demo
+                  </a>
+
                 </div>
               </div>
 
-              {/* Features */}
+              {/* SnapBook Features */}
               <div className="flex-1 grid sm:grid-cols-2 gap-4">
-                {features.map((feature) => {
+
+                {snapBookFeatures.map((feature) => {
                   const Icon = feature.icon;
 
                   return (
@@ -158,14 +197,19 @@ const Projects = () => {
                     </div>
                   );
                 })}
+
               </div>
 
             </div>
           </div>
         </div>
 
-        {/* Other Projects */}
+        {/* =========================
+            Other Projects
+        ========================= */}
+
         <div>
+
           <h3 className="text-2xl font-bold mb-6">
             Other Projects
           </h3>
@@ -177,6 +221,7 @@ const Projects = () => {
                 key={project.title}
                 className="card-surface rounded-2xl p-6 border border-border hover:border-primary transition-all"
               >
+
                 {/* Project Title */}
                 <h4 className="text-2xl font-bold mb-3">
                   {project.title}
@@ -227,6 +272,7 @@ const Projects = () => {
                   )}
 
                 </div>
+
               </div>
             ))}
 
