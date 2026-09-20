@@ -9,9 +9,9 @@ const traits = [
 ];
 
 const stats = [
-  { value: "8.5", label: "CGPA", suffix: "/10" },
-  { value: "10+", label: "Projects" },
-  { value: "5+", label: "Tech Stack" },
+  { value: "6.5", label: "CGPA", suffix: "/10" },
+  { value: "4+", label: "Projects" },
+  { value: "1+", label: "Tech Stack" },
   { value: "2+", label: "Years Coding" },
 ];
 
@@ -35,7 +35,7 @@ const About = () => (
               </div>
               <div>
                 <h3 className="text-xl font-semibold">Education</h3>
-                <p className="text-xs text-muted-foreground font-mono">Currently pursuing</p>
+                
               </div>
             </div>
 
